@@ -13,14 +13,6 @@
 <meta property="og:description" content="Mesto gde se spajaju svi ukusi sveta. Srpskih vladara 405A, Pirot.">
 <meta property="og:image" content="assets/kao-logo.png">
 <meta property="og:locale" content="sr_RS">
-<template id="__bundler_thumbnail" data-bg-color="#B52A2A">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#B52A2A"/>
-    <circle cx="600" cy="400" r="200" fill="#E5D6C0"/>
-    <circle cx="600" cy="400" r="150" fill="#171717"/>
-    <text x="600" y="432" text-anchor="middle" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="120" font-weight="700" fill="#F5EFE3">KAO</text>
-  </svg>
-</template>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -76,6 +68,7 @@
   [data-marqwrap] a:hover { opacity: 1; color: #E5D6C0 !important; }
   [data-hero-img] [data-plate] { transition: box-shadow 0.6s ease; box-shadow: 0 30px 80px -40px rgba(23,23,23,0.5); }
   [data-copied] { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 90; background: #171717; color: #F5EFE3; font-size: 14px; font-weight: 700; padding: 12px 18px; }
+  [data-flash] { outline: 3px solid #B52A2A; outline-offset: 4px; }
   [data-search]:focus-within { max-width: 420px; }
   [data-search] input::-webkit-search-cancel-button { cursor: pointer; }
   [data-cell] { transition: background-color 0.3s ease; }
@@ -180,20 +173,20 @@
 
   <section data-marqwrap style="background: #171717; color: #F5EFE3; overflow: hidden; white-space: nowrap; position: relative; z-index: 2">
     <div data-marquee style="display: inline-flex; gap: 34px; padding: 14px 20px; font-size: 14px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; will-change: transform">
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Bibimbap</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Butter Chicken</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Korejska piletina</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Kao Šavarma</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Turkish Eggs</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Lumpia</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Fried Rice</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Bibimbap</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Butter Chicken</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Korejska piletina</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Kao Šavarma</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Turkish Eggs</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Lumpia</a><span style="color: #B52A2A">●</span>
-      <a href="#ceo-meni" onClick="{{ stopMq }}" style="color: #F5EFE3">Fried Rice</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Bibimbap" onClick="{{ onGoto }}" style="color: #F5EFE3">Bibimbap</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Butter Chicken" onClick="{{ onGoto }}" style="color: #F5EFE3">Butter Chicken</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Korejska piletina" onClick="{{ onGoto }}" style="color: #F5EFE3">Korejska piletina</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Kao Šavarma" onClick="{{ onGoto }}" style="color: #F5EFE3">Kao Šavarma</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Turkish Eggs" onClick="{{ onGoto }}" style="color: #F5EFE3">Turkish Eggs</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Lumpia" onClick="{{ onGoto }}" style="color: #F5EFE3">Lumpia</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Fried Rice" onClick="{{ onGoto }}" style="color: #F5EFE3">Fried Rice</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Bibimbap" onClick="{{ onGoto }}" style="color: #F5EFE3">Bibimbap</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Butter Chicken" onClick="{{ onGoto }}" style="color: #F5EFE3">Butter Chicken</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Korejska piletina" onClick="{{ onGoto }}" style="color: #F5EFE3">Korejska piletina</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Kao Šavarma" onClick="{{ onGoto }}" style="color: #F5EFE3">Kao Šavarma</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Turkish Eggs" onClick="{{ onGoto }}" style="color: #F5EFE3">Turkish Eggs</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Lumpia" onClick="{{ onGoto }}" style="color: #F5EFE3">Lumpia</a><span style="color: #B52A2A">●</span>
+      <a href="#ceo-meni" data-goto="Fried Rice" onClick="{{ onGoto }}" style="color: #F5EFE3">Fried Rice</a><span style="color: #B52A2A">●</span>
     </div>
   </section>
 
@@ -650,7 +643,38 @@ class Component extends DCLogic {
       plate: this.plate,
       setSr: () => this.pick("sr"),
       setEn: () => this.pick("en"),
-      stopMq: () => this.setState(s => ({ mq: s.mq === "on" ? "off" : "on" }))
+      onGoto: (e) => {
+        const a = e.currentTarget || e.target.closest("[data-goto]");
+        const want = (a.getAttribute("data-goto") || "").toLowerCase();
+        if (!want) return;
+        const cards = [...document.querySelectorAll('#ceo-meni [data-dish]')];
+        const label = el => {
+          const n = el.querySelector("[data-n]");
+          if (!n) return "";
+          const sr = n.querySelector("[data-sr]");
+          return (sr ? sr.textContent : n.textContent).trim().toLowerCase();
+        };
+        const card = cards.find(el => label(el) === want) || cards.find(el => label(el).includes(want));
+        if (!card) return;
+        e.preventDefault();
+        card.classList.add("is-in");
+        let sc = card.parentElement;
+        while (sc && sc !== document.body) {
+          const ov = getComputedStyle(sc).overflowY;
+          if ((ov === "auto" || ov === "scroll") && sc.scrollHeight > sc.clientHeight + 4) break;
+          sc = sc.parentElement;
+        }
+        const doc = document.scrollingElement || document.documentElement;
+        const useDoc = !sc || sc === document.body;
+        const target = useDoc ? doc : sc;
+        const base = useDoc ? 0 : target.getBoundingClientRect().top;
+        const top = card.getBoundingClientRect().top - base + target.scrollTop - 130;
+        target.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+        clearTimeout(this.flashTimer);
+        card.setAttribute("data-flash", "1");
+        this.flashTimer = setTimeout(() => card.removeAttribute("data-flash"), 1600);
+      },
+      stopMq: null
     };
   }
 }
